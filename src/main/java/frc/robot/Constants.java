@@ -21,19 +21,43 @@ public final class Constants {
 	public static final int RIGHT_REAR_MOTOR = 3;
 
 
-	//Joystick button/axis maps
-	public static final int DRIVER_JOYSTICK = 0;
-	public static final int DRIVER_JOYSTICK_LEFT_Y_AXIS = 1;
-	public static final int DRIVER_JOYSTICK_RIGHT_Y_AXIS = 3;
-
-	public static final int OPERATOR_JOYSTICK = 1;
-
 	//Drivetrain constants
 	public static final double DRIVETRAINSPEED = 0.75;  //max speed at 75%
 
 	//Camera constants
-	public static final int CAMERA_RES_X = 320;
-	public static final int CAMERA_RES_Y = 240;
+	public static final int CAMERA_RES_X = 640;
+	public static final int CAMERA_RES_Y = 480;
+	
+	//Joystick button/axis maps
+	public static final int DRIVER_JOYSTICK = 0;
+	public static final int DRIVER_JOYSTICK_LEFT_X_AXIS = 0;
+	public static final int DRIVER_JOYSTICK_LEFT_Y_AXIS = 1;
+	public static final int DRIVER_JOYSTICK_RIGHT_X_AXIS = 2;
+	public static final int DRIVER_JOYSTICK_RIGHT_Y_AXIS = 3;
+
+	public static final int OPERATOR_JOYSTICK = 1;
+	public static final int OPERATOR_JOYSTICK_LEFT_X_AXIS = 0;
+	public static final int OPERATOR_JOYSTICK_LEFT_Y_AXIS = 1;
+	public static final int OPERATOR_JOYSTICK_RIGHT_X_AXIS = 2;
+	public static final int OPERATOR_JOYSTICK_RIGHT_Y_AXIS = 3;
+
+	public static final int D_DPAD_UP = 4;
+	public static final int D_DPAD_RIGHT = 3;
+	public static final int D_DPAD_DOWN = 2;
+	public static final int D_DPAD_LEFT = 1;
+	public static final int D_L2 = 7;
+	public static final int D_R2 = 8;
+	public static final int D_L1 = 5;
+	public static final int D_R1 = 6;
+
+	public static final int O_DPAD_UP = 4;
+	public static final int O_DPAD_RIGHT = 3;
+	public static final int O_DPAD_DOWN = 2;
+	public static final int O_DPAD_LEFT = 1;
+	public static final int O_L2 = 7;
+	public static final int O_R2 = 8;
+	public static final int O_L1 = 5;
+	public static final int O_R1 = 6;
 
 
 

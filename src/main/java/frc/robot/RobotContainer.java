@@ -9,9 +9,11 @@ package frc.robot;
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.commands.DriveWithJoysticks;
 import frc.robot.subsystems.Drivetrain;
 import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
@@ -20,10 +22,50 @@ import edu.wpi.first.wpilibj2.command.Command;
  * subsystems, commands, and button mappings) should be declared here.
  */
 public class RobotContainer {
+
+/* sample RobotContainer
+public class RobotContainer {
+ 
+  
+  
+
+
+
+    // Configure the button bindings
+    configureButtonBindings();
+  }
+
+
+  private void configureButtonBindings() {
+    // Create some buttons
+    final JoystickButton dpadUp = new JoystickButton(m_joystick, 5);
+    final JoystickButton dpadRight = new JoystickButton(m_joystick, 6);
+    final JoystickButton dpadDown = new JoystickButton(m_joystick, 7);
+    final JoystickButton dpadLeft = new JoystickButton(m_joystick, 8);
+    final JoystickButton l2 = new JoystickButton(m_joystick, 9);
+    final JoystickButton r2 = new JoystickButton(m_joystick, 10);
+    final JoystickButton l1 = new JoystickButton(m_joystick, 11);
+    final JoystickButton r1 = new JoystickButton(m_joystick, 12);
+
+    // Connect the buttons to commands
+    dpadUp.whenPressed(new SetElevatorSetpoint(0.25, m_elevator));
+    dpadDown.whenPressed(new SetElevatorSetpoint(0.0, m_elevator));
+    dpadRight.whenPressed(new CloseClaw(m_claw));
+    dpadLeft.whenPressed(new OpenClaw(m_claw));
+
+    r1.whenPressed(new PrepareToPickup(m_claw, m_wrist, m_elevator));
+    r2.whenPressed(new Pickup(m_claw, m_wrist, m_elevator));
+    l1.whenPressed(new Place(m_claw, m_wrist, m_elevator));
+    l2.whenPressed(new Autonomous(m_drivetrain, m_claw, m_wrist, m_elevator));
+  }
+  */
+
   // The robot's subsystems and commands are defined here...
   //Drivetrain declare
   private final Drivetrain driveTrain;
   private final DriveWithJoysticks driveWithJoysticks;
+
+  //Controller declare
   public static XboxController driverJoystick;
   public static XboxController operatorJoystick;
 
@@ -37,9 +79,9 @@ public class RobotContainer {
     driveTrain = new Drivetrain();
     driveWithJoysticks = new DriveWithJoysticks(driveTrain);
     driveWithJoysticks.addRequirements(driveTrain);
-    driveTrain.setDefaultCommand(driveWithJoysticks);
+    driveTrain.setDefaultCommand(driveWithJoysticks);  //set default command
 
-    // initials joystick values
+    // initialize joystick values
     driverJoystick = new XboxController(Constants.DRIVER_JOYSTICK);
     operatorJoystick = new XboxController(Constants.OPERATOR_JOYSTICK);
 
@@ -48,10 +90,25 @@ public class RobotContainer {
     camera.setResolution(Constants.CAMERA_RES_X, Constants.CAMERA_RES_Y);
   */
 
+  /*
+   // Put Some buttons on the SmartDashboard   (button text, command)
+   SmartDashboard.putData("Elevator Bottom", new SetElevatorSetpoint(0, m_elevator));
+   SmartDashboard.putData("Elevator Top", new SetElevatorSetpoint(0.25, m_elevator));
+
+   SmartDashboard.putData("Wrist Horizontal", new SetWristSetpoint(0, m_wrist));
+   SmartDashboard.putData("Raise Wrist", new SetWristSetpoint(-45, m_wrist));
+    */
 
 
+    // Show what command your subsystem is running on the SmartDashboard (subsystem)
+        SmartDashboard.putData(driveTrain);
+
+
+
+        
     // Configure the button bindings
     configureButtonBindings();
+
   }
 
   /**
@@ -60,7 +117,26 @@ public class RobotContainer {
    * edu.wpi.first.wpilibj.Joystick} or {@link XboxController}), and then passing it to a {@link
    * edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
-  private void configureButtonBindings() {}
+  private void configureButtonBindings() {
+    //create some buttons
+    final JoystickButton d_dpadUp = new JoystickButton(driverJoystick, Constants.D_DPAD_UP);
+    final JoystickButton d_dpadRight = new JoystickButton(driverJoystick, Constants.D_DPAD_RIGHT);
+    final JoystickButton d_dpadDown = new JoystickButton(driverJoystick, Constants.D_DPAD_DOWN);
+    final JoystickButton d_dpadLeft = new JoystickButton(driverJoystick, Constants.D_DPAD_LEFT);
+    final JoystickButton d_l2 = new JoystickButton(driverJoystick, Constants.D_L2);
+    final JoystickButton d_r2 = new JoystickButton(driverJoystick, Constants.D_R2);
+    final JoystickButton d_l1 = new JoystickButton(driverJoystick, Constants.D_L1);
+    final JoystickButton d_r1 = new JoystickButton(driverJoystick, Constants.D_R1);
+
+    final JoystickButton o_dpadUp = new JoystickButton(operatorJoystick, Constants.O_DPAD_UP);
+    final JoystickButton o_dpadRight = new JoystickButton(operatorJoystick, Constants.O_DPAD_RIGHT);
+    final JoystickButton o_dpadDown = new JoystickButton(operatorJoystick, Constants.O_DPAD_DOWN);
+    final JoystickButton o_dpadLeft = new JoystickButton(operatorJoystick, Constants.O_DPAD_LEFT);
+    final JoystickButton o_l2 = new JoystickButton(operatorJoystick, Constants.O_L2);
+    final JoystickButton o_r2 = new JoystickButton(operatorJoystick, Constants.O_R2);
+    final JoystickButton o_l1 = new JoystickButton(operatorJoystick, Constants.O_L1);
+    final JoystickButton o_r1 = new JoystickButton(operatorJoystick, Constants.O_R1);
+  }
 
   /**
    * Use this to pass the autonomous command to the main {@link Robot} class.
