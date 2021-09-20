@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj.PWMVictorSPX;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
@@ -47,13 +48,15 @@ public class Drivetrain extends SubsystemBase {
   public void driveWithJoysticks(XboxController controller, double speed)
   {
 
+    
     drive.tankDrive((controller.getRawAxis(Constants.DRIVER_JOYSTICK_LEFT_Y_AXIS)*speed),(controller.getRawAxis(Constants.DRIVER_JOYSTICK_RIGHT_Y_AXIS)*speed));
-
+    SmartDashboard.putNumber("Speed from subsystem", speed);
   }
 
   /*
   public void setMaxOutput(double maxOutput) {
-    drive.setMaxOutput(maxOutput);
+    //drive.setMaxOutput(maxOutput);
+    drive.setMaxOutput(1.0);
   }
 */
 

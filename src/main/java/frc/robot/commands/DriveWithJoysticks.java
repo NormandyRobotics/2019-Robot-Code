@@ -22,21 +22,33 @@ public class DriveWithJoysticks extends CommandBase {
 
   // Called when the command is initially scheduled.
   @Override
-  public void initialize() {}
+  public void initialize() {
+ 
+  }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
 
-    if(RobotContainer.driverJoystick.getRawButton(Constants.D_L1))
-    {   
-      driveTrain.driveWithJoysticks(RobotContainer.driverJoystick, Constants.DRIVETRAIN_BOOST);
-    }
-    else
-    {
-      driveTrain.driveWithJoysticks(RobotContainer.driverJoystick, Constants.DRIVETRAIN_SPEED);
-    }
+    double speed = Constants.DRIVETRAIN_SPEED;
 
+  	if(RobotContainer.driverJoystick.getRawButton(Constants.D_L1))
+     {
+       speed = Constants.DRIVETRAIN_BOOST;
+        
+     }
+     else
+     {
+      speed = Constants.DRIVETRAIN_SPEED;
+
+      }
+     
+    driveTrain.driveWithJoysticks(RobotContainer.driverJoystick, speed);
+
+
+      SmartDashboard.putNumber("Left Y", RobotContainer.driverJoystick.getRawAxis(Constants.DRIVER_JOYSTICK_LEFT_Y_AXIS));
+      SmartDashboard.putNumber("Speed", speed);
+      SmartDashboard.putNumber("Output",RobotContainer.driverJoystick.getRawAxis(Constants.DRIVER_JOYSTICK_LEFT_Y_AXIS) * speed);
 
 
     //update smartdashboard with current button/axis values

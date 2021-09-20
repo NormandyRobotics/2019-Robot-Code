@@ -23,7 +23,7 @@ public final class Constants {
 
 	//Drivetrain constants
 	public static final double DRIVETRAIN_BOOST = 1.0;
-	public static final double DRIVETRAIN_SPEED = 0.45;
+	public static final double DRIVETRAIN_SPEED = 0.9;
 
 	//Camera constants
 	public static final int CAMERA_RES_X = 640;

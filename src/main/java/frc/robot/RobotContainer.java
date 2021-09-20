@@ -31,15 +31,7 @@ public class RobotContainer {
 
 
   private void configureButtonBindings() {
-    // Create some buttons
-    final JoystickButton dpadUp = new JoystickButton(m_joystick, 5);
-    final JoystickButton dpadRight = new JoystickButton(m_joystick, 6);
-    final JoystickButton dpadDown = new JoystickButton(m_joystick, 7);
-    final JoystickButton dpadLeft = new JoystickButton(m_joystick, 8);
-    final JoystickButton l2 = new JoystickButton(m_joystick, 9);
-    final JoystickButton r2 = new JoystickButton(m_joystick, 10);
-    final JoystickButton l1 = new JoystickButton(m_joystick, 11);
-    final JoystickButton r1 = new JoystickButton(m_joystick, 12);
+
 
     // Connect the buttons to commands
     dpadUp.whenPressed(new SetElevatorSetpoint(0.25, m_elevator));
@@ -83,15 +75,6 @@ public class RobotContainer {
   /*  UsbCamera camera = CameraServer.getInstance().startAutomaticCapture();
     camera.setResolution(Constants.CAMERA_RES_X, Constants.CAMERA_RES_Y);
   */
-
-  /*
-   // Put Some buttons on the SmartDashboard   (button text, command)
-   SmartDashboard.putData("Elevator Bottom", new SetElevatorSetpoint(0, m_elevator));
-   SmartDashboard.putData("Elevator Top", new SetElevatorSetpoint(0.25, m_elevator));
-
-   SmartDashboard.putData("Wrist Horizontal", new SetWristSetpoint(0, m_wrist));
-   SmartDashboard.putData("Raise Wrist", new SetWristSetpoint(-45, m_wrist));
-    */
 
 
     // Show what command your subsystem is running on the SmartDashboard (subsystem)
@@ -151,21 +134,6 @@ public class RobotContainer {
     SmartDashboard.putNumber("Driver_X2", driverJoystick.getRawAxis(Constants.DRIVER_JOYSTICK_RIGHT_X_AXIS));
     SmartDashboard.putNumber("Driver_Y2", driverJoystick.getRawAxis(Constants.DRIVER_JOYSTICK_RIGHT_Y_AXIS));
 
-
-    
-    /*
-
-    //set normal drive speed 50% with L1 button speed boost to 100%
-    if(d_l1)
-    {
-      driveTrain.setMaxOutput(Constants.DRIVETRAIN_BOOST);
-    }
-    else
-    {
-      driveTrain.setMaxOutput(Constants.DRIVETRAIN_SPEED);
-    }
-
-    */
 
   }
 
