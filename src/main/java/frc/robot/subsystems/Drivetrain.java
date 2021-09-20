@@ -41,17 +41,22 @@ public class Drivetrain extends SubsystemBase {
     driveMotorsRight = new SpeedControllerGroup(rightFrontMotor, rightRearMotor);
 
     drive = new DifferentialDrive(driveMotorsLeft, driveMotorsRight);
-    
-
-
-
+  
   }
 
   public void driveWithJoysticks(XboxController controller, double speed)
   {
+
     drive.tankDrive((controller.getRawAxis(Constants.DRIVER_JOYSTICK_LEFT_Y_AXIS)*speed),(controller.getRawAxis(Constants.DRIVER_JOYSTICK_RIGHT_Y_AXIS)*speed));
 
   }
+
+  /*
+  public void setMaxOutput(double maxOutput) {
+    drive.setMaxOutput(maxOutput);
+  }
+*/
+
   @Override
   public void periodic() {
     // This method will be called once per scheduler run

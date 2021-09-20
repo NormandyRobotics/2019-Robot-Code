@@ -25,13 +25,7 @@ public class RobotContainer {
 
 /* sample RobotContainer
 public class RobotContainer {
- 
-  
-  
-
-
-
-    // Configure the button bindings
+     // Configure the button bindings
     configureButtonBindings();
   }
 
@@ -71,7 +65,7 @@ public class RobotContainer {
 
   //Sendable chooser declare
   SendableChooser<Command> chooser = new SendableChooser<>();
-  
+
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
@@ -105,10 +99,13 @@ public class RobotContainer {
 
 
 
+
+
         
     // Configure the button bindings
     configureButtonBindings();
 
+    
   }
 
   /**
@@ -125,7 +122,7 @@ public class RobotContainer {
     final JoystickButton d_dpadLeft = new JoystickButton(driverJoystick, Constants.D_DPAD_LEFT);
     final JoystickButton d_l2 = new JoystickButton(driverJoystick, Constants.D_L2);
     final JoystickButton d_r2 = new JoystickButton(driverJoystick, Constants.D_R2);
-    final JoystickButton d_l1 = new JoystickButton(driverJoystick, Constants.D_L1);
+    //final JoystickButton d_l1 = new JoystickButton(driverJoystick, Constants.D_L1);
     final JoystickButton d_r1 = new JoystickButton(driverJoystick, Constants.D_R1);
 
     final JoystickButton o_dpadUp = new JoystickButton(operatorJoystick, Constants.O_DPAD_UP);
@@ -136,7 +133,44 @@ public class RobotContainer {
     final JoystickButton o_r2 = new JoystickButton(operatorJoystick, Constants.O_R2);
     final JoystickButton o_l1 = new JoystickButton(operatorJoystick, Constants.O_L1);
     final JoystickButton o_r1 = new JoystickButton(operatorJoystick, Constants.O_R1);
+
+    final boolean d_l1 = driverJoystick.getRawButton(Constants.D_L1);
+
+   
+    //Publish button values to SmartDashboard
+    SmartDashboard.putBoolean("D_L1", d_l1);
+    SmartDashboard.putBoolean("D_L2", d_l2.get());
+    SmartDashboard.putBoolean("D_R1", d_r1.get());
+    SmartDashboard.putBoolean("D_R2", d_r2.get());
+    SmartDashboard.putBoolean("D_Dpad_Up", d_dpadUp.get());
+    SmartDashboard.putBoolean("D_Dpad_Down", d_dpadDown.get());
+    SmartDashboard.putBoolean("D_Dpad_Left", d_dpadLeft.get());
+    SmartDashboard.putBoolean("D_Dpad_Right", d_dpadRight.get());
+    SmartDashboard.putNumber("Driver_X1", driverJoystick.getRawAxis(Constants.DRIVER_JOYSTICK_LEFT_X_AXIS));
+    SmartDashboard.putNumber("Driver_Y1", driverJoystick.getRawAxis(Constants.DRIVER_JOYSTICK_LEFT_Y_AXIS));
+    SmartDashboard.putNumber("Driver_X2", driverJoystick.getRawAxis(Constants.DRIVER_JOYSTICK_RIGHT_X_AXIS));
+    SmartDashboard.putNumber("Driver_Y2", driverJoystick.getRawAxis(Constants.DRIVER_JOYSTICK_RIGHT_Y_AXIS));
+
+
+    
+    /*
+
+    //set normal drive speed 50% with L1 button speed boost to 100%
+    if(d_l1)
+    {
+      driveTrain.setMaxOutput(Constants.DRIVETRAIN_BOOST);
+    }
+    else
+    {
+      driveTrain.setMaxOutput(Constants.DRIVETRAIN_SPEED);
+    }
+
+    */
+
   }
+
+
+
 
   /**
    * Use this to pass the autonomous command to the main {@link Robot} class.
@@ -147,4 +181,6 @@ public class RobotContainer {
  
     return chooser.getSelected();
   }
+
 }
+
