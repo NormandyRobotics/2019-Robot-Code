@@ -60,6 +60,9 @@ public final class Constants {
 	public static final int O_L1 = 5;
 	public static final int O_R1 = 6;
 
+	//CAN IDs
+	public static final int PDP = 0;
+
 
 
 
