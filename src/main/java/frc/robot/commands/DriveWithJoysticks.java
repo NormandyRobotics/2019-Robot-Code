@@ -50,7 +50,7 @@ public class DriveWithJoysticks extends CommandBase {
       SmartDashboard.putNumber("Speed", speed);
       SmartDashboard.putNumber("Output",RobotContainer.driverJoystick.getRawAxis(Constants.DRIVER_JOYSTICK_LEFT_Y_AXIS) * speed);
 
-
+/*
     //update smartdashboard with current button/axis values
     SmartDashboard.putBoolean("D_L1", RobotContainer.driverJoystick.getRawButton(Constants.D_L1));
     SmartDashboard.putBoolean("D_L2", RobotContainer.driverJoystick.getRawButton(Constants.D_L2));
@@ -64,7 +64,7 @@ public class DriveWithJoysticks extends CommandBase {
     SmartDashboard.putNumber("Driver_Y1", RobotContainer.driverJoystick.getRawAxis(Constants.DRIVER_JOYSTICK_LEFT_Y_AXIS));
     SmartDashboard.putNumber("Driver_X2", RobotContainer.driverJoystick.getRawAxis(Constants.DRIVER_JOYSTICK_RIGHT_X_AXIS));
     SmartDashboard.putNumber("Driver_Y2", RobotContainer.driverJoystick.getRawAxis(Constants.DRIVER_JOYSTICK_RIGHT_Y_AXIS));
-
+*/
 
  
   }
