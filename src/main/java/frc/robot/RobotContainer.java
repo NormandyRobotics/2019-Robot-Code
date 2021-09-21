@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.commands.DriveWithJoysticks;
+import frc.robot.commands.Shoot;
 import frc.robot.subsystems.Drivetrain;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
@@ -50,6 +51,10 @@ public class RobotContainer {
   //Drivetrain declare
   private final Drivetrain driveTrain;
   private final DriveWithJoysticks driveWithJoysticks;
+  //private final Shooter shooter;
+  //private final Spinner spinner;
+  //private final Intake intake;
+  //private final Power power;
 
   //Controller declare
   public static XboxController driverJoystick;
@@ -120,8 +125,14 @@ public class RobotContainer {
     final boolean d_l1 = driverJoystick.getRawButton(Constants.D_L1);
 
    //assign buttons
-   d_dpadLeft.whenPressed(new shoot());
+/*
+   new JoystickButton(driverJoystick, Constants.D_DPAD_LEFT)
+      .whenPressed(new Shoot)
+      .whenReleased(new Shoot.stop());
+*/
+    
 
+    
 
     //Publish button values to SmartDashboard
     SmartDashboard.putBoolean("D_L1", d_l1);
