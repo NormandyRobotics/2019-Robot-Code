@@ -27,6 +27,10 @@ public class Shooter extends SubsystemBase {
     
   }
 
+  public void stop()
+  {
+    shootMotor.set(ControlMode.PercentOutput, 0);
+  }
 
   @Override
   public void periodic() {

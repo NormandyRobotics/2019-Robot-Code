@@ -119,7 +119,10 @@ public class RobotContainer {
 
     final boolean d_l1 = driverJoystick.getRawButton(Constants.D_L1);
 
-   
+   //assign buttons
+   d_dpadLeft.whenPressed(new shoot());
+
+
     //Publish button values to SmartDashboard
     SmartDashboard.putBoolean("D_L1", d_l1);
     SmartDashboard.putBoolean("D_L2", d_l2.get());

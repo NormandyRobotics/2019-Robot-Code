@@ -20,6 +20,10 @@ public class Intake extends SubsystemBase {
     intakeBottomMotor = new VictorSPX(Constants.INTAKE_BOTTOMID);
   }
 
+  public void stop() {
+
+  }
+
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
