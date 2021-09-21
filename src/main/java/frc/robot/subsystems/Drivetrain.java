@@ -40,25 +40,16 @@ public class Drivetrain extends SubsystemBase {
 
     driveMotorsLeft = new SpeedControllerGroup(leftFrontMotor, leftRearMotor);
     driveMotorsRight = new SpeedControllerGroup(rightFrontMotor, rightRearMotor);
-
-    drive = new DifferentialDrive(driveMotorsLeft, driveMotorsRight);
   
   }
 
   public void driveWithJoysticks(XboxController controller, double speed)
   {
-
-    
-    drive.tankDrive((controller.getRawAxis(Constants.DRIVER_JOYSTICK_LEFT_Y_AXIS)*speed),(controller.getRawAxis(Constants.DRIVER_JOYSTICK_RIGHT_Y_AXIS)*speed));
+    driveMotorsLeft.set(controller.getRawAxis(Constants.DRIVER_JOYSTICK_LEFT_Y_AXIS)*speed);
+    driveMotorsRight.set(controller.getRawAxis(Constants.DRIVER_JOYSTICK_RIGHT_Y_AXIS)*speed);
     SmartDashboard.putNumber("Speed from subsystem", speed);
   }
 
-  /*
-  public void setMaxOutput(double maxOutput) {
-    //drive.setMaxOutput(maxOutput);
-    drive.setMaxOutput(1.0);
-  }
-*/
 
   @Override
   public void periodic() {
@@ -66,6 +57,7 @@ public class Drivetrain extends SubsystemBase {
   }
 
   public void stop() {
-    drive.stopMotor();
+    driveMotorsLeft.stopMotor();
+    driveMotorsRight.stopMotor();
   }
 }
