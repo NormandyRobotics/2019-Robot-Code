@@ -4,32 +4,26 @@
 
 package frc.robot.subsystems;
 
-import com.ctre.phoenix.motorcontrol.ControlMode;
-import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
-public class Shooter extends SubsystemBase {
-  /** Creates a new Shooter. */
-  TalonSRX shootMotor;
-  
+public class Intake extends SubsystemBase {
+  /** Creates a new Intake. */
+  VictorSPX intakeTopMotor;
+  VictorSPX intakeBottomMotor;
 
 
-  public Shooter() {
-    shootMotor = new TalonSRX(Constants.SHOOTERID);
-  
+  public Intake() {
+    intakeTopMotor = new VictorSPX(Constants.INTAKE_TOPID);
+    intakeBottomMotor = new VictorSPX(Constants.INTAKE_BOTTOMID);
   }
-
-  public void shoot()
-  {
-    shootMotor.set(ControlMode.PercentOutput, 1);
-    
-  }
-
 
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
   }
+
+
 }

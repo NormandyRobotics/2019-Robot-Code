@@ -4,29 +4,24 @@
 
 package frc.robot.subsystems;
 
-import com.ctre.phoenix.motorcontrol.ControlMode;
-import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
-public class Shooter extends SubsystemBase {
-  /** Creates a new Shooter. */
-  TalonSRX shootMotor;
-  
+public class Spinner extends SubsystemBase {
+  /** Creates a new Spinner. */
+  VictorSPX spinnerMotor;
+  VictorSPX liftMotor;
 
 
-  public Shooter() {
-    shootMotor = new TalonSRX(Constants.SHOOTERID);
-  
-  }
 
-  public void shoot()
+  public Spinner()
   {
-    shootMotor.set(ControlMode.PercentOutput, 1);
-    
-  }
-
+    spinnerMotor = new VictorSPX(Constants.SPINNERID);
+    liftMotor = new VictorSPX(Constants.LIFTID);
+  } 
+ 
 
   @Override
   public void periodic() {
