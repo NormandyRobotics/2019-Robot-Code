@@ -69,6 +69,10 @@ public final class Constants {
 	public static final int INTAKE_BOTTOMID = 6;
 
 
+	public static final int SHOOT_ACTIVE = 1;
+	public static final int SHOOT_INACTIVE = 0;
+
+
 
 
 

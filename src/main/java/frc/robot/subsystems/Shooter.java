@@ -7,27 +7,29 @@ package frc.robot.subsystems;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
+import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
 public class Shooter extends SubsystemBase {
-  /** Creates a new Shooter. */
   TalonSRX shootMotor;
   
-
-
+  /** Creates a new Shooter. */
   public Shooter() {
     shootMotor = new TalonSRX(Constants.SHOOTERID);
   
   }
 
-  public void shoot()
+  //start the shooter motor
+
+  public void startShooter()
   {
     shootMotor.set(ControlMode.PercentOutput, 1);
     
   }
 
-  public void stop()
+  //stop the shooter motor
+  public void stopShooter()
   {
     shootMotor.set(ControlMode.PercentOutput, 0);
   }

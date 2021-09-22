@@ -17,12 +17,9 @@ public class DriveWithJoysticks extends CommandBase {
   public DriveWithJoysticks(Drivetrain dt) {
     driveTrain = dt;
     addRequirements(driveTrain);
-    // Use addRequirements() here to declare subsystem dependencies.
-
-
-
-    
+   
   }
+
 
   // Called when the command is initially scheduled.
   @Override
@@ -48,6 +45,7 @@ public class DriveWithJoysticks extends CommandBase {
       }
      
     driveTrain.driveWithJoysticks(RobotContainer.driverJoystick, speed);
+
 
 
       SmartDashboard.putNumber("Left Y", RobotContainer.driverJoystick.getRawAxis(Constants.DRIVER_JOYSTICK_LEFT_Y_AXIS));

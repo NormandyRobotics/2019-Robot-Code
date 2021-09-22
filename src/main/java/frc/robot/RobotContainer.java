@@ -12,7 +12,13 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.commands.DriveWithJoysticks;
 import frc.robot.commands.Shoot;
+import frc.robot.commands.StartShooter;
+import frc.robot.commands.StopShooter;
 import frc.robot.subsystems.Drivetrain;
+import frc.robot.subsystems.Intake;
+import frc.robot.subsystems.Power;
+import frc.robot.subsystems.Shooter;
+import frc.robot.subsystems.Spinner;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 
@@ -24,37 +30,25 @@ import edu.wpi.first.wpilibj2.command.button.JoystickButton;
  */
 public class RobotContainer {
 
-/* sample RobotContainer
-public class RobotContainer {
-     // Configure the button bindings
-    configureButtonBindings();
-  }
-
-
-  private void configureButtonBindings() {
-
-
-    // Connect the buttons to commands
-    dpadUp.whenPressed(new SetElevatorSetpoint(0.25, m_elevator));
-    dpadDown.whenPressed(new SetElevatorSetpoint(0.0, m_elevator));
-    dpadRight.whenPressed(new CloseClaw(m_claw));
-    dpadLeft.whenPressed(new OpenClaw(m_claw));
-
-    r1.whenPressed(new PrepareToPickup(m_claw, m_wrist, m_elevator));
-    r2.whenPressed(new Pickup(m_claw, m_wrist, m_elevator));
-    l1.whenPressed(new Place(m_claw, m_wrist, m_elevator));
-    l2.whenPressed(new Autonomous(m_drivetrain, m_claw, m_wrist, m_elevator));
-  }
-  */
-
   // The robot's subsystems and commands are defined here...
+
   //Drivetrain declare
   private final Drivetrain driveTrain;
   private final DriveWithJoysticks driveWithJoysticks;
-  //private final Shooter shooter;
-  //private final Spinner spinner;
-  //private final Intake intake;
-  //private final Power power;
+
+  //Shooter declare
+  private final Shooter shooter;
+  private final StartShooter startShooter;
+  private final StopShooter stopShooter;
+
+  //Spinner declare
+  private final Spinner spinner;
+
+  //Intake declare
+  private final Intake intake;
+
+  //PDP declare
+  private final Power power;
 
   //Controller declare
   public static XboxController driverJoystick;
@@ -72,6 +66,23 @@ public class RobotContainer {
     driveWithJoysticks.addRequirements(driveTrain);
     driveTrain.setDefaultCommand(driveWithJoysticks);  //set default command
 
+    // initialize shoot values
+    shooter = new Shooter();
+    startShooter = new StartShooter(shooter);
+    startShooter.addRequirements(shooter);
+    stopShooter = new StopShooter(shooter);
+    stopShooter.addRequirements(shooter);
+
+
+    // initialize spinner values
+    spinner = new Spinner();
+    
+    // initialize intake values
+    intake = new Intake();
+
+    // initialize PDP values
+    power = new Power();
+
     // initialize joystick values
     driverJoystick = new XboxController(Constants.DRIVER_JOYSTICK);
     operatorJoystick = new XboxController(Constants.OPERATOR_JOYSTICK);
@@ -82,19 +93,14 @@ public class RobotContainer {
   */
 
 
-    // Show what command your subsystem is running on the SmartDashboard (subsystem)
-        SmartDashboard.putData(driveTrain);
-
-
-
-
-
-        
     // Configure the button bindings
     configureButtonBindings();
 
     
   }
+
+
+
 
   /**
    * Use this method to define your button->command mappings. Buttons can be created by
@@ -125,15 +131,11 @@ public class RobotContainer {
     final boolean d_l1 = driverJoystick.getRawButton(Constants.D_L1);
 
    //assign buttons
+    d_dpadLeft.whenPressed(startShooter);
+    d_dpadLeft.whenReleased(stopShooter);
+
+    
 /*
-   new JoystickButton(driverJoystick, Constants.D_DPAD_LEFT)
-      .whenPressed(new Shoot)
-      .whenReleased(new Shoot.stop());
-*/
-    
-
-    
-
     //Publish button values to SmartDashboard
     SmartDashboard.putBoolean("D_L1", d_l1);
     SmartDashboard.putBoolean("D_L2", d_l2.get());
@@ -147,7 +149,7 @@ public class RobotContainer {
     SmartDashboard.putNumber("Driver_Y1", driverJoystick.getRawAxis(Constants.DRIVER_JOYSTICK_LEFT_Y_AXIS));
     SmartDashboard.putNumber("Driver_X2", driverJoystick.getRawAxis(Constants.DRIVER_JOYSTICK_RIGHT_X_AXIS));
     SmartDashboard.putNumber("Driver_Y2", driverJoystick.getRawAxis(Constants.DRIVER_JOYSTICK_RIGHT_Y_AXIS));
-
+*/
 
   }
 
