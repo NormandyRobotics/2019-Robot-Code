@@ -4,7 +4,6 @@
 
 package frc.robot.commands;
 
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Constants;
 import frc.robot.RobotContainer;
@@ -47,26 +46,6 @@ public class DriveWithJoysticks extends CommandBase {
     driveTrain.driveWithJoysticks(RobotContainer.driverJoystick, speed);
 
 
-
-      SmartDashboard.putNumber("Left Y", RobotContainer.driverJoystick.getRawAxis(Constants.DRIVER_JOYSTICK_LEFT_Y_AXIS));
-      SmartDashboard.putNumber("Speed", speed);
-      SmartDashboard.putNumber("Output",RobotContainer.driverJoystick.getRawAxis(Constants.DRIVER_JOYSTICK_LEFT_Y_AXIS) * speed);
-
-/*
-    //update smartdashboard with current button/axis values
-    SmartDashboard.putBoolean("D_L1", RobotContainer.driverJoystick.getRawButton(Constants.D_L1));
-    SmartDashboard.putBoolean("D_L2", RobotContainer.driverJoystick.getRawButton(Constants.D_L2));
-    SmartDashboard.putBoolean("D_R1", RobotContainer.driverJoystick.getRawButton(Constants.D_R1));
-    SmartDashboard.putBoolean("D_R2", RobotContainer.driverJoystick.getRawButton(Constants.D_R2));
-    SmartDashboard.putBoolean("D_Dpad_Up", RobotContainer.driverJoystick.getRawButton(Constants.D_DPAD_UP));
-    SmartDashboard.putBoolean("D_Dpad_Down", RobotContainer.driverJoystick.getRawButton(Constants.D_DPAD_DOWN));
-    SmartDashboard.putBoolean("D_Dpad_Left", RobotContainer.driverJoystick.getRawButton(Constants.D_DPAD_LEFT));
-    SmartDashboard.putBoolean("D_Dpad_Right", RobotContainer.driverJoystick.getRawButton(Constants.D_DPAD_RIGHT));
-    SmartDashboard.putNumber("Driver_X1", RobotContainer.driverJoystick.getRawAxis(Constants.DRIVER_JOYSTICK_LEFT_X_AXIS));
-    SmartDashboard.putNumber("Driver_Y1", RobotContainer.driverJoystick.getRawAxis(Constants.DRIVER_JOYSTICK_LEFT_Y_AXIS));
-    SmartDashboard.putNumber("Driver_X2", RobotContainer.driverJoystick.getRawAxis(Constants.DRIVER_JOYSTICK_RIGHT_X_AXIS));
-    SmartDashboard.putNumber("Driver_Y2", RobotContainer.driverJoystick.getRawAxis(Constants.DRIVER_JOYSTICK_RIGHT_Y_AXIS));
-*/
 
  
   }

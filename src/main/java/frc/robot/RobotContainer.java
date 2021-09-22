@@ -11,7 +11,6 @@ import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.commands.DriveWithJoysticks;
-import frc.robot.commands.Shoot;
 import frc.robot.commands.StartShooter;
 import frc.robot.commands.StopShooter;
 import frc.robot.subsystems.Drivetrain;
@@ -110,23 +109,23 @@ public class RobotContainer {
    */
   private void configureButtonBindings() {
     //create some buttons
-    final JoystickButton d_dpadUp = new JoystickButton(driverJoystick, Constants.D_DPAD_UP);
-    final JoystickButton d_dpadRight = new JoystickButton(driverJoystick, Constants.D_DPAD_RIGHT);
-    final JoystickButton d_dpadDown = new JoystickButton(driverJoystick, Constants.D_DPAD_DOWN);
+    //final JoystickButton d_dpadUp = new JoystickButton(driverJoystick, Constants.D_DPAD_UP);
+    //final JoystickButton d_dpadRight = new JoystickButton(driverJoystick, Constants.D_DPAD_RIGHT);
+    //final JoystickButton d_dpadDown = new JoystickButton(driverJoystick, Constants.D_DPAD_DOWN);
     final JoystickButton d_dpadLeft = new JoystickButton(driverJoystick, Constants.D_DPAD_LEFT);
-    final JoystickButton d_l2 = new JoystickButton(driverJoystick, Constants.D_L2);
-    final JoystickButton d_r2 = new JoystickButton(driverJoystick, Constants.D_R2);
+    //final JoystickButton d_l2 = new JoystickButton(driverJoystick, Constants.D_L2);
+    //final JoystickButton d_r2 = new JoystickButton(driverJoystick, Constants.D_R2);
     //final JoystickButton d_l1 = new JoystickButton(driverJoystick, Constants.D_L1);
-    final JoystickButton d_r1 = new JoystickButton(driverJoystick, Constants.D_R1);
+    //final JoystickButton d_r1 = new JoystickButton(driverJoystick, Constants.D_R1);
 
-    final JoystickButton o_dpadUp = new JoystickButton(operatorJoystick, Constants.O_DPAD_UP);
-    final JoystickButton o_dpadRight = new JoystickButton(operatorJoystick, Constants.O_DPAD_RIGHT);
-    final JoystickButton o_dpadDown = new JoystickButton(operatorJoystick, Constants.O_DPAD_DOWN);
-    final JoystickButton o_dpadLeft = new JoystickButton(operatorJoystick, Constants.O_DPAD_LEFT);
-    final JoystickButton o_l2 = new JoystickButton(operatorJoystick, Constants.O_L2);
-    final JoystickButton o_r2 = new JoystickButton(operatorJoystick, Constants.O_R2);
-    final JoystickButton o_l1 = new JoystickButton(operatorJoystick, Constants.O_L1);
-    final JoystickButton o_r1 = new JoystickButton(operatorJoystick, Constants.O_R1);
+    //final JoystickButton o_dpadUp = new JoystickButton(operatorJoystick, Constants.O_DPAD_UP);
+    //final JoystickButton o_dpadRight = new JoystickButton(operatorJoystick, Constants.O_DPAD_RIGHT);
+    //final JoystickButton o_dpadDown = new JoystickButton(operatorJoystick, Constants.O_DPAD_DOWN);
+    //final JoystickButton o_dpadLeft = new JoystickButton(operatorJoystick, Constants.O_DPAD_LEFT);
+    //final JoystickButton o_l2 = new JoystickButton(operatorJoystick, Constants.O_L2);
+    //final JoystickButton o_r2 = new JoystickButton(operatorJoystick, Constants.O_R2);
+    //final JoystickButton o_l1 = new JoystickButton(operatorJoystick, Constants.O_L1);
+    //final JoystickButton o_r1 = new JoystickButton(operatorJoystick, Constants.O_R1);
 
     final boolean d_l1 = driverJoystick.getRawButton(Constants.D_L1);
 
