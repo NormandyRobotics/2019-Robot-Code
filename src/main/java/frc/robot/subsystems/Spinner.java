@@ -4,6 +4,7 @@
 
 package frc.robot.subsystems;
 
+import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
@@ -22,6 +23,21 @@ public class Spinner extends SubsystemBase {
     liftMotor = new VictorSPX(Constants.LIFTID);
   } 
  
+  public void spinForward()
+  {
+    spinnerMotor.set(ControlMode.PercentOutput, 1);
+  }
+
+  public void spinBackward()
+  {
+    spinnerMotor.set(ControlMode.PercentOutput, -1);
+  }
+
+  public void spinStop()
+  {
+    spinnerMotor.set(ControlMode.PercentOutput, 0);
+  }
+
 
   @Override
   public void periodic() {

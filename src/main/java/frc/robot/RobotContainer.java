@@ -11,6 +11,9 @@ import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.commands.DriveWithJoysticks;
+import frc.robot.commands.SpinBackward;
+import frc.robot.commands.SpinForward;
+import frc.robot.commands.SpinStop;
 import frc.robot.commands.StartShooter;
 import frc.robot.commands.StopShooter;
 import frc.robot.subsystems.Drivetrain;
@@ -42,6 +45,10 @@ public class RobotContainer {
 
   //Spinner declare
   private final Spinner spinner;
+  private final SpinBackward spinBackward;
+  private final SpinForward spinForward;
+  private final SpinStop spinStop;
+  
 
   //Intake declare
   private final Intake intake;
@@ -75,6 +82,9 @@ public class RobotContainer {
 
     // initialize spinner values
     spinner = new Spinner();
+    spinForward = new SpinForward(spinner);
+    spinBackward = new SpinBackward(spinner);
+    spinStop = new SpinStop(spinner);
     
     // initialize intake values
     intake = new Intake();
@@ -119,19 +129,27 @@ public class RobotContainer {
     //final JoystickButton d_r1 = new JoystickButton(driverJoystick, Constants.D_R1);
 
     //final JoystickButton o_dpadUp = new JoystickButton(operatorJoystick, Constants.O_DPAD_UP);
-    //final JoystickButton o_dpadRight = new JoystickButton(operatorJoystick, Constants.O_DPAD_RIGHT);
+    final JoystickButton o_dpadRight = new JoystickButton(operatorJoystick, Constants.O_DPAD_RIGHT);
     //final JoystickButton o_dpadDown = new JoystickButton(operatorJoystick, Constants.O_DPAD_DOWN);
-    //final JoystickButton o_dpadLeft = new JoystickButton(operatorJoystick, Constants.O_DPAD_LEFT);
+    final JoystickButton o_dpadLeft = new JoystickButton(operatorJoystick, Constants.O_DPAD_LEFT);
     //final JoystickButton o_l2 = new JoystickButton(operatorJoystick, Constants.O_L2);
     //final JoystickButton o_r2 = new JoystickButton(operatorJoystick, Constants.O_R2);
     //final JoystickButton o_l1 = new JoystickButton(operatorJoystick, Constants.O_L1);
     //final JoystickButton o_r1 = new JoystickButton(operatorJoystick, Constants.O_R1);
 
-    final boolean d_l1 = driverJoystick.getRawButton(Constants.D_L1);
+    //final boolean d_l1 = driverJoystick.getRawButton(Constants.D_L1);
 
-   //assign buttons
+    //assign drivers buttons
     d_dpadLeft.whenPressed(startShooter);
     d_dpadLeft.whenReleased(stopShooter);
+
+    //assign operators buttons
+    o_dpadLeft.whenPressed(spinForward);
+    o_dpadLeft.whenReleased(spinStop);
+    o_dpadRight.whenPressed(spinBackward);
+    o_dpadRight.whenReleased(spinStop);
+
+
 
     
 /*
