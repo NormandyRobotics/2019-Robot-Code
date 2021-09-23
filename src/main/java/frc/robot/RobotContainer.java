@@ -11,6 +11,9 @@ import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.commands.DriveWithJoysticks;
+import frc.robot.commands.LiftDown;
+import frc.robot.commands.LiftStop;
+import frc.robot.commands.LiftUp;
 import frc.robot.commands.SpinBackward;
 import frc.robot.commands.SpinForward;
 import frc.robot.commands.SpinStop;
@@ -48,6 +51,9 @@ public class RobotContainer {
   private final SpinBackward spinBackward;
   private final SpinForward spinForward;
   private final SpinStop spinStop;
+  private final LiftUp liftUp;
+  private final LiftDown liftDown;
+  private final LiftStop liftStop;
   
 
   //Intake declare
@@ -85,6 +91,10 @@ public class RobotContainer {
     spinForward = new SpinForward(spinner);
     spinBackward = new SpinBackward(spinner);
     spinStop = new SpinStop(spinner);
+
+    liftUp = new LiftUp(spinner);
+    liftDown = new LiftDown(spinner);
+    liftStop = new LiftStop(spinner);
     
     // initialize intake values
     intake = new Intake();
@@ -128,9 +138,9 @@ public class RobotContainer {
     //final JoystickButton d_l1 = new JoystickButton(driverJoystick, Constants.D_L1);
     //final JoystickButton d_r1 = new JoystickButton(driverJoystick, Constants.D_R1);
 
-    //final JoystickButton o_dpadUp = new JoystickButton(operatorJoystick, Constants.O_DPAD_UP);
+    final JoystickButton o_dpadUp = new JoystickButton(operatorJoystick, Constants.O_DPAD_UP);
     final JoystickButton o_dpadRight = new JoystickButton(operatorJoystick, Constants.O_DPAD_RIGHT);
-    //final JoystickButton o_dpadDown = new JoystickButton(operatorJoystick, Constants.O_DPAD_DOWN);
+    final JoystickButton o_dpadDown = new JoystickButton(operatorJoystick, Constants.O_DPAD_DOWN);
     final JoystickButton o_dpadLeft = new JoystickButton(operatorJoystick, Constants.O_DPAD_LEFT);
     //final JoystickButton o_l2 = new JoystickButton(operatorJoystick, Constants.O_L2);
     //final JoystickButton o_r2 = new JoystickButton(operatorJoystick, Constants.O_R2);
@@ -148,6 +158,11 @@ public class RobotContainer {
     o_dpadLeft.whenReleased(spinStop);
     o_dpadRight.whenPressed(spinBackward);
     o_dpadRight.whenReleased(spinStop);
+    o_dpadUp.whenPressed(liftUp);
+    o_dpadUp.whenReleased(liftStop);
+    o_dpadDown.whenPressed(liftDown);
+    o_dpadDown.whenReleased(liftDown);
+
 
 
 

@@ -38,6 +38,21 @@ public class Spinner extends SubsystemBase {
     spinnerMotor.set(ControlMode.PercentOutput, 0);
   }
 
+  public void liftUp()
+  {
+    liftMotor.set(ControlMode.PercentOutput, 1);
+  }
+
+  public void liftDown()
+  {
+    liftMotor.set(ControlMode.PercentOutput, -1);
+  }
+
+  public void liftStop()
+  {
+    liftMotor.set(ControlMode.PercentOutput, 0);
+  }
+
 
   @Override
   public void periodic() {

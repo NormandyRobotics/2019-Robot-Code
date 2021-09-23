@@ -7,20 +7,21 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.Spinner;
 
-public class SpinStop extends CommandBase {
+public class LiftStop extends CommandBase {
   private final Spinner spinner;
-  /** Creates a new SpinStop. */
-  public SpinStop(Spinner sp) {
+
+  /** Creates a new LiftStop. */
+  public LiftStop(Spinner sp) {
+    // Use addRequirements() here to declare subsystem dependencies.
     spinner = sp;
     addRequirements(spinner);
-    // Use addRequirements() here to declare subsystem dependencies.
   }
 
   // Called when the command is initially scheduled.
   @Override
   public void initialize() 
   {
-    spinner.spinStop();
+    spinner.liftStop();
   }
 
   // Called every time the scheduler runs while the command is scheduled.
