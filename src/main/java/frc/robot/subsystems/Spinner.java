@@ -7,20 +7,20 @@ package frc.robot.subsystems;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 
+import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
 public class Spinner extends SubsystemBase {
   /** Creates a new Spinner. */
   VictorSPX spinnerMotor;
-  VictorSPX liftMotor;
-
+  Spark liftMotor;
 
 
   public Spinner()
   {
     spinnerMotor = new VictorSPX(Constants.SPINNERID);
-    liftMotor = new VictorSPX(Constants.LIFTID);
+    liftMotor = new Spark(Constants.LIFT_MOTOR);
   } 
  
   public void spinForward()
@@ -40,17 +40,17 @@ public class Spinner extends SubsystemBase {
 
   public void liftUp()
   {
-    liftMotor.set(ControlMode.PercentOutput, 1);
+    liftMotor.set(1);
   }
 
   public void liftDown()
   {
-    liftMotor.set(ControlMode.PercentOutput, -1);
+    liftMotor.set(-1);
   }
 
   public void liftStop()
   {
-    liftMotor.set(ControlMode.PercentOutput, 0);
+    liftMotor.set(0);
   }
 
 

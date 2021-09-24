@@ -19,6 +19,7 @@ public final class Constants {
 	public static final int LEFT_REAR_MOTOR = 2;
 	public static final int RIGHT_FRONT_MOTOR = 1;
 	public static final int RIGHT_REAR_MOTOR = 3;
+	public static final int LIFT_MOTOR = 4;
 
 
 	//Drivetrain constants
@@ -64,7 +65,7 @@ public final class Constants {
 	public static final int PDP = 0;
 	public static final int SHOOTERID = 2;
 	public static final int SPINNERID = 3;
-	public static final int LIFTID = 4;
+
 	public static final int INTAKE_TOPID = 5;
 	public static final int INTAKE_BOTTOMID = 6;
 

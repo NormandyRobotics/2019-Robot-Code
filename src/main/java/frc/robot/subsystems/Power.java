@@ -19,15 +19,22 @@ public class Power extends SubsystemBase {
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
-        /*
-     * Get the current going through channel 7, in Amperes. The PDP returns the
-     * current in increments of 0.125A. At low currents
-     * the current readings tend to be less accurate.
-     * 
-     * Add addtional channels to watch current draw
-     */
+    
+    //Display current draw
+    SmartDashboard.putNumber("Current Channel 1", pdp.getCurrent(1));
+    SmartDashboard.putNumber("Current Channel 2", pdp.getCurrent(2));
+    SmartDashboard.putNumber("Current Channel 3", pdp.getCurrent(3));
+    SmartDashboard.putNumber("Current Channel 4", pdp.getCurrent(4));
+    SmartDashboard.putNumber("Current Channel 5", pdp.getCurrent(5));
+    SmartDashboard.putNumber("Current Channel 6", pdp.getCurrent(6));
     SmartDashboard.putNumber("Current Channel 7", pdp.getCurrent(7));
-
+    SmartDashboard.putNumber("Current Channel 8", pdp.getCurrent(8));
+    SmartDashboard.putNumber("Current Channel 9", pdp.getCurrent(9));
+    SmartDashboard.putNumber("Current Channel 10", pdp.getCurrent(10));
+    SmartDashboard.putNumber("Current Channel 11", pdp.getCurrent(11));
+    SmartDashboard.putNumber("Current Channel 12", pdp.getCurrent(12));
+    SmartDashboard.putNumber("Current Channel 13", pdp.getCurrent(13));
+    SmartDashboard.putNumber("Current Channel 14", pdp.getCurrent(14));
     /*
      * Get the voltage going into the PDP, in Volts.
      * The PDP returns the voltage in increments of 0.05 Volts.
