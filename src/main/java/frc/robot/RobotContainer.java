@@ -179,8 +179,6 @@ public class RobotContainer {
     final JoystickButton o_l1 = new JoystickButton(operatorJoystick, Constants.O_L1);
     final JoystickButton o_r1 = new JoystickButton(operatorJoystick, Constants.O_R1);
 
-    //final boolean d_l1 = driverJoystick.getRawButton(Constants.D_L1);
-
     //assign drivers buttons
     d_dpadLeft.whenPressed(startShooter);
     d_dpadLeft.whenReleased(stopShooter);
@@ -204,26 +202,6 @@ public class RobotContainer {
     o_r2.whenReleased(bottomIntakeStop);
 
 
-
-
-
-
-    
-/*
-    //Publish button values to SmartDashboard
-    SmartDashboard.putBoolean("D_L1", d_l1);
-    SmartDashboard.putBoolean("D_L2", d_l2.get());
-    SmartDashboard.putBoolean("D_R1", d_r1.get());
-    SmartDashboard.putBoolean("D_R2", d_r2.get());
-    SmartDashboard.putBoolean("D_Dpad_Up", d_dpadUp.get());
-    SmartDashboard.putBoolean("D_Dpad_Down", d_dpadDown.get());
-    SmartDashboard.putBoolean("D_Dpad_Left", d_dpadLeft.get());
-    SmartDashboard.putBoolean("D_Dpad_Right", d_dpadRight.get());
-    SmartDashboard.putNumber("Driver_X1", driverJoystick.getRawAxis(Constants.DRIVER_JOYSTICK_LEFT_X_AXIS));
-    SmartDashboard.putNumber("Driver_Y1", driverJoystick.getRawAxis(Constants.DRIVER_JOYSTICK_LEFT_Y_AXIS));
-    SmartDashboard.putNumber("Driver_X2", driverJoystick.getRawAxis(Constants.DRIVER_JOYSTICK_RIGHT_X_AXIS));
-    SmartDashboard.putNumber("Driver_Y2", driverJoystick.getRawAxis(Constants.DRIVER_JOYSTICK_RIGHT_Y_AXIS));
-*/
 
   }
 
