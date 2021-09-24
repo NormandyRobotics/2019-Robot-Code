@@ -10,6 +10,9 @@ import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import frc.robot.commands.BottomIntakeDown;
+import frc.robot.commands.BottomIntakeStop;
+import frc.robot.commands.BottomIntakeUp;
 import frc.robot.commands.DriveWithJoysticks;
 import frc.robot.commands.LiftDown;
 import frc.robot.commands.LiftStop;
@@ -19,6 +22,9 @@ import frc.robot.commands.SpinForward;
 import frc.robot.commands.SpinStop;
 import frc.robot.commands.StartShooter;
 import frc.robot.commands.StopShooter;
+import frc.robot.commands.TopInstakeStop;
+import frc.robot.commands.TopIntakeDown;
+import frc.robot.commands.TopIntakeUp;
 import frc.robot.subsystems.Drivetrain;
 import frc.robot.subsystems.Intake;
 import frc.robot.subsystems.Power;
@@ -58,6 +64,13 @@ public class RobotContainer {
 
   //Intake declare
   private final Intake intake;
+  private final BottomIntakeDown bottomIntakeDown;
+  private final BottomIntakeStop bottomIntakeStop;
+  private final BottomIntakeUp bottomIntakeUp;
+  private final TopInstakeStop topIntakeStop;
+  private final TopIntakeDown topIntakeDown;
+  private final TopIntakeUp topIntakeUp;
+
 
   //PDP declare
   private final Power power;
@@ -89,15 +102,34 @@ public class RobotContainer {
     // initialize spinner values
     spinner = new Spinner();
     spinForward = new SpinForward(spinner);
+    spinForward.addRequirements(spinner);
     spinBackward = new SpinBackward(spinner);
+    spinBackward.addRequirements(spinner);
     spinStop = new SpinStop(spinner);
+    spinStop.addRequirements(spinner);
 
     liftUp = new LiftUp(spinner);
+    liftUp.addRequirements(spinner);
     liftDown = new LiftDown(spinner);
+    liftDown.addRequirements(spinner);
     liftStop = new LiftStop(spinner);
+    liftStop.addRequirements(spinner);
     
     // initialize intake values
     intake = new Intake();
+    bottomIntakeDown = new BottomIntakeDown(intake);
+    bottomIntakeDown.addRequirements(intake);
+    bottomIntakeStop = new BottomIntakeStop(intake);
+    bottomIntakeStop.addRequirements(intake);
+    bottomIntakeUp = new BottomIntakeUp(intake);
+    bottomIntakeUp.addRequirements(intake);
+    topIntakeDown = new TopIntakeDown(intake);
+    topIntakeDown.addRequirements(intake);
+    topIntakeStop = new TopInstakeStop(intake);
+    topIntakeStop.addRequirements(intake);
+    topIntakeUp = new TopIntakeUp(intake);
+    topIntakeUp.addRequirements(intake);
+
 
     // initialize PDP values
     power = new Power();
@@ -142,10 +174,10 @@ public class RobotContainer {
     final JoystickButton o_dpadRight = new JoystickButton(operatorJoystick, Constants.O_DPAD_RIGHT);
     final JoystickButton o_dpadDown = new JoystickButton(operatorJoystick, Constants.O_DPAD_DOWN);
     final JoystickButton o_dpadLeft = new JoystickButton(operatorJoystick, Constants.O_DPAD_LEFT);
-    //final JoystickButton o_l2 = new JoystickButton(operatorJoystick, Constants.O_L2);
-    //final JoystickButton o_r2 = new JoystickButton(operatorJoystick, Constants.O_R2);
-    //final JoystickButton o_l1 = new JoystickButton(operatorJoystick, Constants.O_L1);
-    //final JoystickButton o_r1 = new JoystickButton(operatorJoystick, Constants.O_R1);
+    final JoystickButton o_l2 = new JoystickButton(operatorJoystick, Constants.O_L2);
+    final JoystickButton o_r2 = new JoystickButton(operatorJoystick, Constants.O_R2);
+    final JoystickButton o_l1 = new JoystickButton(operatorJoystick, Constants.O_L1);
+    final JoystickButton o_r1 = new JoystickButton(operatorJoystick, Constants.O_R1);
 
     //final boolean d_l1 = driverJoystick.getRawButton(Constants.D_L1);
 
@@ -162,6 +194,16 @@ public class RobotContainer {
     o_dpadUp.whenReleased(liftStop);
     o_dpadDown.whenPressed(liftDown);
     o_dpadDown.whenReleased(liftDown);
+    o_l1.whenPressed(topIntakeUp);
+    o_l1.whenReleased(topIntakeStop);
+    o_l2.whenPressed(topIntakeDown);
+    o_l2.whenReleased(topIntakeStop);
+    o_r1.whenPressed(bottomIntakeUp);
+    o_r1.whenReleased(bottomIntakeStop);
+    o_r2.whenPressed(bottomIntakeDown);
+    o_r2.whenReleased(bottomIntakeStop);
+
+
 
 
 
