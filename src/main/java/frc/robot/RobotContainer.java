@@ -182,25 +182,33 @@ public class RobotContainer {
     //assign drivers buttons
     d_dpadLeft.whenPressed(startShooter);
     d_dpadLeft.whenReleased(stopShooter);
+    SmartDashboard.putString("Shooter"," ");
+
 
     //assign operators buttons
     o_dpadLeft.whenPressed(spinForward);
     o_dpadLeft.whenReleased(spinStop);
     o_dpadRight.whenPressed(spinBackward);
     o_dpadRight.whenReleased(spinStop);
+    SmartDashboard.putString("Spinner", " ");
+
     o_dpadUp.whenPressed(liftUp);
     o_dpadUp.whenReleased(liftStop);
     o_dpadDown.whenPressed(liftDown);
-    o_dpadDown.whenReleased(liftDown);
+    o_dpadDown.whenReleased(liftStop);
+    SmartDashboard.putString("Lift"," ");
+
     o_l1.whenPressed(topIntakeUp);
     o_l1.whenReleased(topIntakeStop);
     o_l2.whenPressed(topIntakeDown);
     o_l2.whenReleased(topIntakeStop);
+    SmartDashboard.putString("Intake Top", " ");
+
     o_r1.whenPressed(bottomIntakeUp);
     o_r1.whenReleased(bottomIntakeStop);
     o_r2.whenPressed(bottomIntakeDown);
     o_r2.whenReleased(bottomIntakeStop);
-
+    SmartDashboard.putString("Intake Bottom", " ");
 
 
   }

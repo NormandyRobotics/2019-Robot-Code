@@ -48,7 +48,6 @@ public class Drivetrain extends SubsystemBase {
   {
     driveMotorsLeft.set(controller.getRawAxis(Constants.DRIVER_JOYSTICK_LEFT_Y_AXIS)*speed);
     driveMotorsRight.set(controller.getRawAxis(Constants.DRIVER_JOYSTICK_RIGHT_Y_AXIS)*speed);
-    SmartDashboard.putNumber("Speed from subsystem", speed);
   }
 
 

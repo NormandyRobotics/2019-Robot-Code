@@ -4,6 +4,7 @@
 
 package frc.robot.commands;
 
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.Spinner;
 
@@ -22,6 +23,7 @@ public class LiftDown extends CommandBase {
   public void initialize() 
   {
     spinner.liftDown();
+    SmartDashboard.putString("Lift","Down");
   }
 
   // Called every time the scheduler runs while the command is scheduled.
