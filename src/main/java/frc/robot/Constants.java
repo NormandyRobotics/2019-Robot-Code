@@ -63,7 +63,7 @@ public final class Constants {
 
 	//CAN IDs
 	public static final int PDP = 0;
-	public static final int SHOOTERID = 2;
+	public static final int SHOOTERID = 4;
 	public static final int SPINNERID = 3;
 
 	public static final int INTAKE_TOPID = 5;
