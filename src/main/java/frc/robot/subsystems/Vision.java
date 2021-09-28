@@ -4,6 +4,9 @@
 
 package frc.robot.subsystems;
 
+import org.opencv.core.Mat;
+import org.opencv.imgproc.Imgproc;
+
 import edu.wpi.cscore.CvSink;
 import edu.wpi.cscore.CvSource;
 import edu.wpi.cscore.MjpegServer;
@@ -22,23 +25,7 @@ MjpegServer mjpegServer1, mjpegServer2;
 
   /** Creates a new Vision. */
   public Vision() {
-    //Creates UsbCamera and MjpegServer [1] and connects them
-    camera = new UsbCamera("USB Camera 0", 0);
-    mjpegServer1 = new MjpegServer("server_USB Camera 0", 1181);
-    mjpegServer1.setSource(camera);
-    //camera = CameraServer.getInstance().startAutomaticCapture(); //change?
-    //camera.setResolution(Constants.CAMERA_RES_X,Constants.CAMERA_RES_Y); //change?
-
-    //Creates the CvSink and connects it to the UsbCamera
-    cvSink = new CvSink("opencv_USB Camera 0");
-    cvSink.setSource(camera);  
-    //cvSink = CameraServer.getInstance().getVideo(); //change?
-    
-    //Creates the CvSource and MjpecServer[2] and connects them
-    outputStream = new CvSource("Blur", PixelFormat.kMJPEG, Constants.CAMERA_RES_X, Constants.CAMERA_RES_Y,30);
-    mjpegServer2 = new MjpegServer("serve_blur",1182);
-    mjpegServer2.setSource(outputStream);
-    // outputStream = CameraServer.getInstance().putVideo("Blur",Constants.CAMERA_RES_X,Constants.CAMERA_RES_Y);
+  
 
 
   }

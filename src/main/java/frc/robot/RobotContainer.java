@@ -28,6 +28,7 @@ import frc.robot.commands.TopIntakeUp;
 import frc.robot.subsystems.Drivetrain;
 import frc.robot.subsystems.Intake;
 import frc.robot.subsystems.Power;
+import frc.robot.subsystems.Sensors;
 import frc.robot.subsystems.Shooter;
 import frc.robot.subsystems.Spinner;
 import frc.robot.subsystems.Vision;
@@ -72,9 +73,11 @@ public class RobotContainer {
   private final TopIntakeDown topIntakeDown;
   private final TopIntakeUp topIntakeUp;
 
-
   //PDP declare
   private final Power power;
+
+  //Sensors declare
+  private final Sensors sensors;
 
   //Controller declare
   public static XboxController driverJoystick;
@@ -138,17 +141,22 @@ public class RobotContainer {
     // initialize PDP values
     power = new Power();
 
+    // initialize Sensor values
+    sensors = new Sensors();
+
     // initialize vision
     vision = new Vision();
 
     // initialize joystick values
     driverJoystick = new XboxController(Constants.DRIVER_JOYSTICK);
     operatorJoystick = new XboxController(Constants.OPERATOR_JOYSTICK);
-/*
+
+    /*
     //initalize camera (move to its own subsystem later)
     UsbCamera camera = CameraServer.getInstance().startAutomaticCapture();
     camera.setResolution(Constants.CAMERA_RES_X, Constants.CAMERA_RES_Y);
   */
+
 
 
     // Configure the button bindings
