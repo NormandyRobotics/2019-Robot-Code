@@ -60,6 +60,7 @@ public final class Constants {
 	public static final int O_R2 = 8;
 	public static final int O_L1 = 5;
 	public static final int O_R1 = 6;
+	public static final int O_JOY1 = 11;
 
 	//CAN IDs
 	public static final int PDP = 0;
@@ -70,8 +71,9 @@ public final class Constants {
 	public static final int INTAKE_BOTTOMID = 6;
 
 
-	public static final int SHOOT_ACTIVE = 1;
-	public static final int SHOOT_INACTIVE = 0;
+	//public static final int SHOOT_ACTIVE = 1;
+	//public static final int SHOOT_INACTIVE = 0;
+
 
 
 

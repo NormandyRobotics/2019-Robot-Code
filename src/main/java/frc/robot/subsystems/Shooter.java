@@ -5,17 +5,21 @@
 package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
-import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+// import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
 public class Shooter extends SubsystemBase {
-  TalonSRX shootMotor;
-  
+  //TalonSRX shootMotor;
+  VictorSPX shootMotor;
+
   /** Creates a new Shooter. */
   public Shooter() {
-    shootMotor = new TalonSRX(Constants.SHOOTERID);
+    //shootMotor = new TalonSRX(Constants.SHOOTERID);
+    shootMotor = new VictorSPX(Constants.SHOOTERID);
+    shootMotor.setInverted(true);
   
   }
 

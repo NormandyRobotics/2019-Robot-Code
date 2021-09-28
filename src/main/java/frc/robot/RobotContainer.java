@@ -4,8 +4,8 @@
 
 package frc.robot;
 
-//import edu.wpi.cscore.UsbCamera;
-//import edu.wpi.first.cameraserver.CameraServer;
+import edu.wpi.cscore.UsbCamera;
+import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
@@ -30,6 +30,7 @@ import frc.robot.subsystems.Intake;
 import frc.robot.subsystems.Power;
 import frc.robot.subsystems.Shooter;
 import frc.robot.subsystems.Spinner;
+import frc.robot.subsystems.Vision;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 
@@ -78,6 +79,9 @@ public class RobotContainer {
   //Controller declare
   public static XboxController driverJoystick;
   public static XboxController operatorJoystick;
+
+  //Vision declare
+  private final Vision vision;
 
   //Sendable chooser declare
   SendableChooser<Command> chooser = new SendableChooser<>();
@@ -134,12 +138,15 @@ public class RobotContainer {
     // initialize PDP values
     power = new Power();
 
+    // initialize vision
+    vision = new Vision();
+
     // initialize joystick values
     driverJoystick = new XboxController(Constants.DRIVER_JOYSTICK);
     operatorJoystick = new XboxController(Constants.OPERATOR_JOYSTICK);
-
+/*
     //initalize camera (move to its own subsystem later)
-  /*  UsbCamera camera = CameraServer.getInstance().startAutomaticCapture();
+    UsbCamera camera = CameraServer.getInstance().startAutomaticCapture();
     camera.setResolution(Constants.CAMERA_RES_X, Constants.CAMERA_RES_Y);
   */
 
@@ -178,11 +185,15 @@ public class RobotContainer {
     final JoystickButton o_r2 = new JoystickButton(operatorJoystick, Constants.O_R2);
     final JoystickButton o_l1 = new JoystickButton(operatorJoystick, Constants.O_L1);
     final JoystickButton o_r1 = new JoystickButton(operatorJoystick, Constants.O_R1);
+    final JoystickButton o_joy1 = new JoystickButton(operatorJoystick, Constants.O_JOY1);
 
     //assign drivers buttons
     d_dpadLeft.whenPressed(startShooter);
     d_dpadLeft.whenReleased(stopShooter);
-    SmartDashboard.putString("Shooter"," ");
+    o_joy1.whenPressed(startShooter);
+    o_joy1.whenReleased(stopShooter);
+
+    SmartDashboard.putString("Shooter","---");
 
 
     //assign operators buttons
@@ -190,25 +201,25 @@ public class RobotContainer {
     o_dpadLeft.whenReleased(spinStop);
     o_dpadRight.whenPressed(spinBackward);
     o_dpadRight.whenReleased(spinStop);
-    SmartDashboard.putString("Spinner", " ");
+    SmartDashboard.putString("Spinner", "---");
 
     o_dpadUp.whenPressed(liftUp);
     o_dpadUp.whenReleased(liftStop);
     o_dpadDown.whenPressed(liftDown);
     o_dpadDown.whenReleased(liftStop);
-    SmartDashboard.putString("Lift"," ");
+    SmartDashboard.putString("Lift","---");
 
     o_l1.whenPressed(topIntakeUp);
     o_l1.whenReleased(topIntakeStop);
     o_l2.whenPressed(topIntakeDown);
     o_l2.whenReleased(topIntakeStop);
-    SmartDashboard.putString("Intake Top", " ");
+    SmartDashboard.putString("Intake Top", "---");
 
     o_r1.whenPressed(bottomIntakeUp);
     o_r1.whenReleased(bottomIntakeStop);
     o_r2.whenPressed(bottomIntakeDown);
     o_r2.whenReleased(bottomIntakeStop);
-    SmartDashboard.putString("Intake Bottom", " ");
+    SmartDashboard.putString("Intake Bottom", "---");
 
 
   }
