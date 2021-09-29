@@ -4,8 +4,7 @@
 
 package frc.robot;
 
-import edu.wpi.cscore.UsbCamera;
-import edu.wpi.first.cameraserver.CameraServer;
+
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
@@ -176,14 +175,19 @@ public class RobotContainer {
    */
   private void configureButtonBindings() {
     //create some buttons
-    //final JoystickButton d_dpadUp = new JoystickButton(driverJoystick, Constants.D_DPAD_UP);
-    //final JoystickButton d_dpadRight = new JoystickButton(driverJoystick, Constants.D_DPAD_RIGHT);
-    //final JoystickButton d_dpadDown = new JoystickButton(driverJoystick, Constants.D_DPAD_DOWN);
+    final JoystickButton d_dpadUp = new JoystickButton(driverJoystick, Constants.D_DPAD_UP);
+    final JoystickButton d_dpadRight = new JoystickButton(driverJoystick, Constants.D_DPAD_RIGHT);
+    final JoystickButton d_dpadDown = new JoystickButton(driverJoystick, Constants.D_DPAD_DOWN);
     final JoystickButton d_dpadLeft = new JoystickButton(driverJoystick, Constants.D_DPAD_LEFT);
-    //final JoystickButton d_l2 = new JoystickButton(driverJoystick, Constants.D_L2);
-    //final JoystickButton d_r2 = new JoystickButton(driverJoystick, Constants.D_R2);
-    //final JoystickButton d_l1 = new JoystickButton(driverJoystick, Constants.D_L1);
-    //final JoystickButton d_r1 = new JoystickButton(driverJoystick, Constants.D_R1);
+    final JoystickButton d_l2 = new JoystickButton(driverJoystick, Constants.D_L2);
+    final JoystickButton d_r2 = new JoystickButton(driverJoystick, Constants.D_R2);
+    final JoystickButton d_l1 = new JoystickButton(driverJoystick, Constants.D_L1);
+    final JoystickButton d_r1 = new JoystickButton(driverJoystick, Constants.D_R1);
+    final JoystickButton d_joy1 = new JoystickButton(driverJoystick, Constants.D_JOY1);
+    final JoystickButton d_joy2 = new JoystickButton(driverJoystick, Constants.D_JOY2);
+    final JoystickButton d_midLeft = new JoystickButton(driverJoystick, Constants.D_MIDLEFT);
+    final JoystickButton d_midRight = new JoystickButton(driverJoystick, Constants.D_MIDRIGHT);
+    
 
     final JoystickButton o_dpadUp = new JoystickButton(operatorJoystick, Constants.O_DPAD_UP);
     final JoystickButton o_dpadRight = new JoystickButton(operatorJoystick, Constants.O_DPAD_RIGHT);
@@ -194,12 +198,17 @@ public class RobotContainer {
     final JoystickButton o_l1 = new JoystickButton(operatorJoystick, Constants.O_L1);
     final JoystickButton o_r1 = new JoystickButton(operatorJoystick, Constants.O_R1);
     final JoystickButton o_joy1 = new JoystickButton(operatorJoystick, Constants.O_JOY1);
+    final JoystickButton o_joy2 = new JoystickButton(operatorJoystick, Constants.O_JOY2);
+    final JoystickButton o_midLeft = new JoystickButton(driverJoystick, Constants.O_MIDLEFT);
+    final JoystickButton o_midRight = new JoystickButton(driverJoystick, Constants.O_MIDRIGHT);
 
     //assign drivers buttons
-    d_dpadLeft.whenPressed(startShooter);
-    d_dpadLeft.whenReleased(stopShooter);
-    o_joy1.whenPressed(startShooter);
-    o_joy1.whenReleased(stopShooter);
+    //d_dpadLeft.whenPressed(startShooter);
+    //d_dpadLeft.whenReleased(stopShooter);
+    o_midLeft.whenPressed(startShooter);
+    o_midLeft.whenReleased(stopShooter);
+    d_midLeft.whenPressed(startShooter);
+    d_midLeft.whenReleased(stopShooter);
 
     SmartDashboard.putString("Shooter","---");
 
@@ -209,24 +218,40 @@ public class RobotContainer {
     o_dpadLeft.whenReleased(spinStop);
     o_dpadRight.whenPressed(spinBackward);
     o_dpadRight.whenReleased(spinStop);
+    d_dpadLeft.whenPressed(spinForward);
+    d_dpadLeft.whenReleased(spinStop);
+    d_dpadRight.whenPressed(spinBackward);
+    d_dpadRight.whenReleased(spinStop);
     SmartDashboard.putString("Spinner", "---");
 
     o_dpadUp.whenPressed(liftUp);
     o_dpadUp.whenReleased(liftStop);
     o_dpadDown.whenPressed(liftDown);
     o_dpadDown.whenReleased(liftStop);
+    d_dpadUp.whenPressed(liftUp);
+    d_dpadUp.whenReleased(liftStop);
+    d_dpadDown.whenPressed(liftDown);
+    d_dpadDown.whenReleased(liftStop);
     SmartDashboard.putString("Lift","---");
 
     o_l1.whenPressed(topIntakeUp);
     o_l1.whenReleased(topIntakeStop);
     o_l2.whenPressed(topIntakeDown);
     o_l2.whenReleased(topIntakeStop);
+    d_l1.whenPressed(topIntakeUp);
+    d_l1.whenReleased(topIntakeStop);
+    d_l2.whenPressed(topIntakeDown);
+    d_l2.whenReleased(topIntakeStop);
     SmartDashboard.putString("Intake Top", "---");
 
     o_r1.whenPressed(bottomIntakeUp);
     o_r1.whenReleased(bottomIntakeStop);
     o_r2.whenPressed(bottomIntakeDown);
     o_r2.whenReleased(bottomIntakeStop);
+    d_r1.whenPressed(bottomIntakeUp);
+    d_r1.whenReleased(bottomIntakeStop);
+    d_r2.whenPressed(bottomIntakeDown);
+    d_r2.whenReleased(bottomIntakeStop);
     SmartDashboard.putString("Intake Bottom", "---");
 
 
