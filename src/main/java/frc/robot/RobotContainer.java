@@ -4,7 +4,8 @@
 
 package frc.robot;
 
-
+import edu.wpi.cscore.UsbCamera;
+import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
@@ -150,11 +151,11 @@ public class RobotContainer {
     driverJoystick = new XboxController(Constants.DRIVER_JOYSTICK);
     operatorJoystick = new XboxController(Constants.OPERATOR_JOYSTICK);
 
-    /*
+  
     //initalize camera (move to its own subsystem later)
-    UsbCamera camera = CameraServer.getInstance().startAutomaticCapture();
-    camera.setResolution(Constants.CAMERA_RES_X, Constants.CAMERA_RES_Y);
-  */
+    CameraServer.getInstance().startAutomaticCapture();
+    //camera.setResolution(Constants.CAMERA_RES_X, Constants.CAMERA_RES_Y);
+  
 
 
 
