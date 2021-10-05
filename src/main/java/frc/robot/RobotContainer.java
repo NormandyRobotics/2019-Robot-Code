@@ -51,6 +51,7 @@ public class RobotContainer {
   private final Shooter shooter;
   private final StartShooter startShooter;
   private final StopShooter stopShooter;
+ 
 
   //Spinner declare
   private final Spinner spinner;
@@ -97,6 +98,7 @@ public class RobotContainer {
     startShooter.addRequirements(shooter);
     stopShooter = new StopShooter(shooter);
     stopShooter.addRequirements(shooter);
+
 
 
     // initialize spinner values
@@ -178,6 +180,8 @@ public class RobotContainer {
     final JoystickButton o_r2 = new JoystickButton(operatorJoystick, Constants.O_R2);
     final JoystickButton o_l1 = new JoystickButton(operatorJoystick, Constants.O_L1);
     final JoystickButton o_r1 = new JoystickButton(operatorJoystick, Constants.O_R1);
+
+
 
     //assign drivers buttons
     d_dpadLeft.whenPressed(startShooter);
