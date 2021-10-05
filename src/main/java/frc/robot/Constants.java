@@ -51,6 +51,10 @@ public final class Constants {
 	public static final int D_R2 = 8;
 	public static final int D_L1 = 5;
 	public static final int D_R1 = 6;
+	public static final int D_MIDLEFT = 9;
+	public static final int D_MIDRIGHT = 10;
+	public static final int D_JOY1 = 11;
+	public static final int D_JOY2 = 12;
 
 	public static final int O_DPAD_UP = 4;
 	public static final int O_DPAD_RIGHT = 3;
@@ -60,18 +64,27 @@ public final class Constants {
 	public static final int O_R2 = 8;
 	public static final int O_L1 = 5;
 	public static final int O_R1 = 6;
+	public static final int O_MIDLEFT = 9;
+	public static final int O_MIDRIGHT = 10;
+	public static final int O_JOY1 = 11;
+	public static final int O_JOY2 = 12;
 
 	//CAN IDs
 	public static final int PDP = 0;
-	public static final int SHOOTERID = 2;
+	public static final int SHOOTERID = 4;
 	public static final int SPINNERID = 3;
 
 	public static final int INTAKE_TOPID = 5;
 	public static final int INTAKE_BOTTOMID = 6;
 
 
-	public static final int SHOOT_ACTIVE = 1;
-	public static final int SHOOT_INACTIVE = 0;
+
+
+
+
+	//public static final int SHOOT_ACTIVE = 1;
+	//public static final int SHOOT_INACTIVE = 0;
+
 
 
 

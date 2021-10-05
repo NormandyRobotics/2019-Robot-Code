@@ -32,7 +32,7 @@ public class DriveWithJoysticks extends CommandBase {
 
     double speed = Constants.DRIVETRAIN_SPEED;
 
-  	if(RobotContainer.driverJoystick.getRawButton(Constants.D_L1))
+  	if(RobotContainer.driverJoystick.getRawButton(Constants.D_JOY1) && RobotContainer.driverJoystick.getRawButton(Constants.D_JOY2))
      {
        speed = Constants.DRIVETRAIN_BOOST;
         
