@@ -208,12 +208,14 @@ public class RobotContainer {
 
 
     //assign drivers buttons
-    //d_dpadLeft.whenPressed(startShooter);
-    //d_dpadLeft.whenReleased(stopShooter);
+    d_dpadLeft.whenPressed(startShooter);
+    d_dpadLeft.whenReleased(stopShooter);
     o_midLeft.whenPressed(startShooter);
     o_midLeft.whenReleased(stopShooter);
     d_midLeft.whenPressed(startShooter);
     d_midLeft.whenReleased(stopShooter);
+
+    
 
     SmartDashboard.putString("Shooter","---");
 
