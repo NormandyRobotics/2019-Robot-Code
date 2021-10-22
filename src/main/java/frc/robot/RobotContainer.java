@@ -106,8 +106,6 @@ public class RobotContainer {
     stopShooter = new StopShooter(shooter);
     stopShooter.addRequirements(shooter);
 
-
-
     // initialize spinner values
     spinner = new Spinner();
     spinForward = new SpinForward(spinner);
@@ -139,7 +137,6 @@ public class RobotContainer {
     topIntakeUp = new TopIntakeUp(intake);
     topIntakeUp.addRequirements(intake);
 
-
     // initialize PDP values
     power = new Power();
 
@@ -153,14 +150,10 @@ public class RobotContainer {
     driverJoystick = new XboxController(Constants.DRIVER_JOYSTICK);
     operatorJoystick = new XboxController(Constants.OPERATOR_JOYSTICK);
 
-  
     //initalize camera (move to its own subsystem later)
     CameraServer.getInstance().startAutomaticCapture();
     //camera.setResolution(Constants.CAMERA_RES_X, Constants.CAMERA_RES_Y);
   
-
-
-
     // Configure the button bindings
     configureButtonBindings();
 
@@ -191,7 +184,6 @@ public class RobotContainer {
     final JoystickButton d_midLeft = new JoystickButton(driverJoystick, Constants.D_MIDLEFT);
     final JoystickButton d_midRight = new JoystickButton(driverJoystick, Constants.D_MIDRIGHT);
     
-
     final JoystickButton o_dpadUp = new JoystickButton(operatorJoystick, Constants.O_DPAD_UP);
     final JoystickButton o_dpadRight = new JoystickButton(operatorJoystick, Constants.O_DPAD_RIGHT);
     final JoystickButton o_dpadDown = new JoystickButton(operatorJoystick, Constants.O_DPAD_DOWN);
@@ -205,18 +197,10 @@ public class RobotContainer {
     final JoystickButton o_midLeft = new JoystickButton(driverJoystick, Constants.O_MIDLEFT);
     final JoystickButton o_midRight = new JoystickButton(driverJoystick, Constants.O_MIDRIGHT);
 
-
-
     //assign drivers buttons
     d_midLeft.whenPressed(startShooter);
-    d_midRight.whenPressed(stopShooter);
-    o_midLeft.whenPressed(startShooter);
-    o_midLeft.whenReleased(stopShooter);
-    d_midLeft.whenPressed(startShooter);
-    d_midLeft.whenReleased(stopShooter);
-
+    d_midLeft.whenReleased(stopShooter); 
     SmartDashboard.putString("Shooter","---");
-
 
     //assign operators buttons
     o_dpadLeft.whenPressed(spinForward);
